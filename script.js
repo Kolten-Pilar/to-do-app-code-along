@@ -34,5 +34,7 @@ function addToDo(todo) {
     todoEL.innerText = todoText;
     // append the todo list items to the todo unordered list
     todoUL.appendChild(todoEL);
+    // clear out after enter
+    input.value = '';
   }
 }
