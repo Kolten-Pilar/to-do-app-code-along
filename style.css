@@ -36,10 +36,12 @@ form {
   padding: 1rem 2rem;
   display: block;
   width: 100%;
+  text-align: center;
 }
 
 .input::placeholder {
   color: #d5d5d5;
+  text-align: center;
 }
 
 .input:focus {
@@ -58,6 +60,7 @@ form {
   cursor: pointer;
   font-size: 1.5rem;
   padding: 1rem 2rem;
+  text-align: center;
 }
 
 .todos li.completed {
