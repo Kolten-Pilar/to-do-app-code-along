@@ -1,3 +1,4 @@
+alert('Followed along in PerScholas SE class 6/22/23')
 // bring in elements from todo list
 const form = document.getElementById('form');
 const input = document.getElementById('input');
