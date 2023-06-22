@@ -10,21 +10,28 @@ form.addEventListener('submit', (e) => {
 })
 
 function addToDo(todo) {
+  // saving the input value(text) to a variable
   let todoText = input.value;
 
+  // checking if a todo exists
   if(todo) {
+    // set the value of input to the value of todo.text
     todoText = todo.text;
   }
   
-
+  // checking if the text exists
   if(todoText) {
+    // create a new list item
     const todoEL = document.createElement('li');
 
+    // checking if there is a todo AND is completed
     if(todo && todo.completed) {
+      // add the strikethrough class
       todo.classList.add('completed');
     }
+
     // make the text of li same as input value
-    todoEL.innerText = todoText
+    todoEL.innerText = todoText;
     // append the todo list items to the todo unordered list
     todoUL.appendChild(todoEL);
   }
