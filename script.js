@@ -2,6 +2,13 @@
 const form = document.getElementById('form');
 const input = document.getElementById('input');
 const todoUL = document.getElementById('todos');
+const todos = JSON.parse(localStorage.getItem('todos'));
+
+if (todos) {
+  todos.forEach((todo) => {
+    addToDo(todo);
+  });
+}
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -27,7 +34,7 @@ function addToDo(todo) {
     // checking if there is a todo AND is completed
     if(todo && todo.completed) {
       // add the strikethrough class
-      todo.classList.add('completed');
+      todoEL.classList.add('completed');
     }
 
     // make the text of li same as input value
@@ -39,12 +46,32 @@ function addToDo(todo) {
 
     todoEL.addEventListener('click', () => {
       todoEL.classList.toggle('completed');
+      updateLS();
     })
-
+    // remove list item
     todoEL.addEventListener('contextmenu', (e) => {
       e.preventDefault();
       // remove list item
       todoEL.remove();
-    })
+      updateLS();
+    });
+    updateLS();
   }
+
+  
+}
+
+function updateLS() {
+ const todosEl = document.querySelectorAll('li');
+
+  const todos = []
+
+  todosEl.forEach((todoEl) => {
+    todos.push({
+      text: todoEl.innerText,
+      completed: todoEl.classList.contains('completed')
+    })
+  })
+
+  localStorage.setItem('todos', JSON.stringify(todos))
 }
